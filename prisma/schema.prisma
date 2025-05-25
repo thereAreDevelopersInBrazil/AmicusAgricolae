@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LegalEntityType {
+  FISICA
+  JURIDICA
+}
+
+model productors {
+  id       Int             @id @default(autoincrement())
+  name     String
+  document String
+  type     LegalEntityType
+
+  properties rural_properties[] @relation("RuralProperties")
+}
+
+model rural_properties {
+  id              Int    @id @default(autoincrement())
+  name            String
+  city            String
+  state           String
+  total_area      Float
+  arable_area     Float
+  vegetation_area Float
+
+  productor_id Int
+  productor    productors @relation("RuralProperties", fields: [productor_id], references: [id])
+
+  crops crops[] @relation("Crops")
+}
+
+model crops {
+  id                Int             @id @default(autoincrement())
+  yield             String
+  area              Float
+  rural_property_id Int
+  harvest           Int
+  rural_property    rural_properties @relation("Crops", fields: [rural_property_id], references: [id])
+}
