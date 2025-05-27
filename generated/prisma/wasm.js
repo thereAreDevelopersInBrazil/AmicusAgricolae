@@ -124,7 +124,11 @@ exports.Prisma.ProductorsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   document: 'document',
-  type: 'type'
+  type: 'type',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  deleted_at: 'deleted_at',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.Rural_propertiesScalarFieldEnum = {
@@ -135,15 +139,23 @@ exports.Prisma.Rural_propertiesScalarFieldEnum = {
   total_area: 'total_area',
   arable_area: 'arable_area',
   vegetation_area: 'vegetation_area',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  deleted_at: 'deleted_at',
+  is_deleted: 'is_deleted',
   productor_id: 'productor_id'
 };
 
 exports.Prisma.CropsScalarFieldEnum = {
   id: 'id',
-  yield: 'yield',
+  product: 'product',
   area: 'area',
   rural_property_id: 'rural_property_id',
-  harvest: 'harvest'
+  harvest: 'harvest',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  deleted_at: 'deleted_at',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.SortOrder = {
@@ -155,9 +167,14 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
 exports.LegalEntityType = exports.$Enums.LegalEntityType = {
-  FISICA: 'FISICA',
-  JURIDICA: 'JURIDICA'
+  PF: 'PF',
+  PJ: 'PJ'
 };
 
 exports.Prisma.ModelName = {

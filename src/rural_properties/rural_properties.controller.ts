@@ -1,34 +1,47 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { RuralPropertiesService } from './rural_properties.service';
 import { CreateRuralPropertyDto } from './dto/create-rural_property.dto';
 import { UpdateRuralPropertyDto } from './dto/update-rural_property.dto';
+import { IdParamDto } from 'src/core/dto/id-param.dto';
 
 @Controller('rural-properties')
 export class RuralPropertiesController {
-  constructor(private readonly ruralPropertiesService: RuralPropertiesService) {}
+  constructor(private readonly ruralPropertiesService: RuralPropertiesService) { }
 
   @Post()
-  create(@Body() createRuralPropertyDto: CreateRuralPropertyDto) {
-    return this.ruralPropertiesService.create(createRuralPropertyDto);
+  async create(@Body() createRuralPropertyDto: CreateRuralPropertyDto) {
+    const result = await this.ruralPropertiesService.create(createRuralPropertyDto);
+    return result.toJson();
   }
 
   @Get()
-  findAll() {
-    return this.ruralPropertiesService.findAll();
+  async findAll() {
+    const results = await this.ruralPropertiesService.findAll();
+    return results.map((result) => {
+      return result.toJson();
+    });
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.ruralPropertiesService.findOne(+id);
+  async findOne(@Param() params: IdParamDto) {
+    const result = await this.ruralPropertiesService.findOne(params.id);
+    return result.toJson();
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRuralPropertyDto: UpdateRuralPropertyDto) {
-    return this.ruralPropertiesService.update(+id, updateRuralPropertyDto);
+  async partialUpdate(@Param() params: IdParamDto, @Body() partialUpdateRuralPropertyDto: UpdateRuralPropertyDto) {
+    const result = await this.ruralPropertiesService.partialUpdate(params.id, partialUpdateRuralPropertyDto);
+    return result.toJson();
+  }
+
+  @Put(':id')
+  async fullUpdate(@Param() params: IdParamDto, @Body() fullUpdateRuralPropertyDto: CreateRuralPropertyDto) {
+    const result = await this.ruralPropertiesService.fullUpdate(params.id, fullUpdateRuralPropertyDto);
+    return result.toJson();
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.ruralPropertiesService.remove(+id);
+  async remove(@Param() params: IdParamDto) {
+    return await this.ruralPropertiesService.remove(params.id);
   }
 }

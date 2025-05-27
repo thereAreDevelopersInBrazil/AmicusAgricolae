@@ -3,10 +3,10 @@ import { Controller, Get } from '@nestjs/common';
 @Controller("app")
 export class AppController {
 
-  @Get("hello")
-  getHello() {
+  @Get("healtcheck")
+  getHealtcheck() {
     return {
-      "success": "Hello world!"
+      "success": true
     }
   }
 }

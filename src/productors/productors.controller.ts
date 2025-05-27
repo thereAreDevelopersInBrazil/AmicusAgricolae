@@ -1,34 +1,48 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, NotFoundException, Put } from '@nestjs/common';
 import { ProductorsService } from './productors.service';
 import { CreateProductorDto } from './dto/create-productor.dto';
 import { UpdateProductorDto } from './dto/update-productor.dto';
+import { IdParamDto } from 'src/core/dto/id-param.dto';
 
 @Controller('productors')
 export class ProductorsController {
-  constructor(private readonly productorsService: ProductorsService) {}
+  constructor(private readonly productorsService: ProductorsService) { }
 
   @Post()
-  create(@Body() createProductorDto: CreateProductorDto) {
-    return this.productorsService.create(createProductorDto);
+  async create(@Body() createProductorDto: CreateProductorDto) {
+    return (await this.productorsService.create(createProductorDto)).toJson();
   }
 
   @Get()
-  findAll() {
-    return this.productorsService.findAll();
+  async findAll() {
+    const results = await this.productorsService.findAll();
+    return results.map((result) => {
+      return result.toJson();
+    });
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productorsService.findOne(+id);
+  async findOne(@Param() params: IdParamDto) {
+    const result = await this.productorsService.findOne(params.id);
+    return result.toJson();
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductorDto: UpdateProductorDto) {
-    return this.productorsService.update(+id, updateProductorDto);
+  async partialUpdate(@Param() params: IdParamDto, @Body() partialUpdateDto: UpdateProductorDto) {
+    const result = await this.productorsService.partialUpdate(params.id, partialUpdateDto);
+
+    return result.toJson();
+  }
+
+  @Put(':id')
+  async fullUpdate(@Param() params: IdParamDto, @Body() fullUpdateDto: CreateProductorDto) {
+    const result = await this.productorsService.partialUpdate(params.id, fullUpdateDto);
+
+    return result.toJson();
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productorsService.remove(+id);
+  async remove(@Param() params: IdParamDto) {
+    return await this.productorsService.remove(params.id);
   }
 }

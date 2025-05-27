@@ -12,15 +12,20 @@ datasource db {
 }
 
 enum LegalEntityType {
-  FISICA
-  JURIDICA
+  PF
+  PJ
 }
 
 model productors {
   id       Int             @id @default(autoincrement())
   name     String
-  document String
+  document String          @unique
   type     LegalEntityType
+
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  is_deleted Boolean   @default(false)
 
   properties rural_properties[] @relation("RuralProperties")
 }
@@ -34,6 +39,11 @@ model rural_properties {
   arable_area     Float
   vegetation_area Float
 
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  is_deleted Boolean   @default(false)
+
   productor_id Int
   productor    productors @relation("RuralProperties", fields: [productor_id], references: [id])
 
@@ -41,10 +51,16 @@ model rural_properties {
 }
 
 model crops {
-  id                Int             @id @default(autoincrement())
-  yield             String
+  id                Int    @id @default(autoincrement())
+  product           String
   area              Float
   rural_property_id Int
   harvest           Int
-  rural_property    rural_properties @relation("Crops", fields: [rural_property_id], references: [id])
+
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  is_deleted Boolean   @default(false)
+
+  rural_property rural_properties @relation("Crops", fields: [rural_property_id], references: [id])
 }

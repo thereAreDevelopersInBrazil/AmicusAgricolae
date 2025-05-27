@@ -34,8 +34,8 @@ export type crops = $Result.DefaultSelection<Prisma.$cropsPayload>
  */
 export namespace $Enums {
   export const LegalEntityType: {
-  FISICA: 'FISICA',
-  JURIDICA: 'JURIDICA'
+  PF: 'PF',
+  PJ: 'PJ'
 };
 
 export type LegalEntityType = (typeof LegalEntityType)[keyof typeof LegalEntityType]
@@ -1154,6 +1154,10 @@ export namespace Prisma {
     name: string | null
     document: string | null
     type: $Enums.LegalEntityType | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    is_deleted: boolean | null
   }
 
   export type ProductorsMaxAggregateOutputType = {
@@ -1161,6 +1165,10 @@ export namespace Prisma {
     name: string | null
     document: string | null
     type: $Enums.LegalEntityType | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    is_deleted: boolean | null
   }
 
   export type ProductorsCountAggregateOutputType = {
@@ -1168,6 +1176,10 @@ export namespace Prisma {
     name: number
     document: number
     type: number
+    created_at: number
+    updated_at: number
+    deleted_at: number
+    is_deleted: number
     _all: number
   }
 
@@ -1185,6 +1197,10 @@ export namespace Prisma {
     name?: true
     document?: true
     type?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
   }
 
   export type ProductorsMaxAggregateInputType = {
@@ -1192,6 +1208,10 @@ export namespace Prisma {
     name?: true
     document?: true
     type?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
   }
 
   export type ProductorsCountAggregateInputType = {
@@ -1199,6 +1219,10 @@ export namespace Prisma {
     name?: true
     document?: true
     type?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -1293,6 +1317,10 @@ export namespace Prisma {
     name: string
     document: string
     type: $Enums.LegalEntityType
+    created_at: Date
+    updated_at: Date
+    deleted_at: Date | null
+    is_deleted: boolean
     _count: ProductorsCountAggregateOutputType | null
     _avg: ProductorsAvgAggregateOutputType | null
     _sum: ProductorsSumAggregateOutputType | null
@@ -1319,6 +1347,10 @@ export namespace Prisma {
     name?: boolean
     document?: boolean
     type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     properties?: boolean | productors$propertiesArgs<ExtArgs>
     _count?: boolean | ProductorsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["productors"]>
@@ -1328,6 +1360,10 @@ export namespace Prisma {
     name?: boolean
     document?: boolean
     type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
   }, ExtArgs["result"]["productors"]>
 
   export type productorsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1335,6 +1371,10 @@ export namespace Prisma {
     name?: boolean
     document?: boolean
     type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
   }, ExtArgs["result"]["productors"]>
 
   export type productorsSelectScalar = {
@@ -1342,9 +1382,13 @@ export namespace Prisma {
     name?: boolean
     document?: boolean
     type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
   }
 
-  export type productorsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "document" | "type", ExtArgs["result"]["productors"]>
+  export type productorsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "document" | "type" | "created_at" | "updated_at" | "deleted_at" | "is_deleted", ExtArgs["result"]["productors"]>
   export type productorsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     properties?: boolean | productors$propertiesArgs<ExtArgs>
     _count?: boolean | ProductorsCountOutputTypeDefaultArgs<ExtArgs>
@@ -1362,6 +1406,10 @@ export namespace Prisma {
       name: string
       document: string
       type: $Enums.LegalEntityType
+      created_at: Date
+      updated_at: Date
+      deleted_at: Date | null
+      is_deleted: boolean
     }, ExtArgs["result"]["productors"]>
     composites: {}
   }
@@ -1790,6 +1838,10 @@ export namespace Prisma {
     readonly name: FieldRef<"productors", 'String'>
     readonly document: FieldRef<"productors", 'String'>
     readonly type: FieldRef<"productors", 'LegalEntityType'>
+    readonly created_at: FieldRef<"productors", 'DateTime'>
+    readonly updated_at: FieldRef<"productors", 'DateTime'>
+    readonly deleted_at: FieldRef<"productors", 'DateTime'>
+    readonly is_deleted: FieldRef<"productors", 'Boolean'>
   }
     
 
@@ -2256,6 +2308,10 @@ export namespace Prisma {
     total_area: number | null
     arable_area: number | null
     vegetation_area: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    is_deleted: boolean | null
     productor_id: number | null
   }
 
@@ -2267,6 +2323,10 @@ export namespace Prisma {
     total_area: number | null
     arable_area: number | null
     vegetation_area: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    is_deleted: boolean | null
     productor_id: number | null
   }
 
@@ -2278,6 +2338,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at: number
+    updated_at: number
+    deleted_at: number
+    is_deleted: number
     productor_id: number
     _all: number
   }
@@ -2307,6 +2371,10 @@ export namespace Prisma {
     total_area?: true
     arable_area?: true
     vegetation_area?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
     productor_id?: true
   }
 
@@ -2318,6 +2386,10 @@ export namespace Prisma {
     total_area?: true
     arable_area?: true
     vegetation_area?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
     productor_id?: true
   }
 
@@ -2329,6 +2401,10 @@ export namespace Prisma {
     total_area?: true
     arable_area?: true
     vegetation_area?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
     productor_id?: true
     _all?: true
   }
@@ -2427,6 +2503,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at: Date
+    updated_at: Date
+    deleted_at: Date | null
+    is_deleted: boolean
     productor_id: number
     _count: Rural_propertiesCountAggregateOutputType | null
     _avg: Rural_propertiesAvgAggregateOutputType | null
@@ -2457,6 +2537,10 @@ export namespace Prisma {
     total_area?: boolean
     arable_area?: boolean
     vegetation_area?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     productor_id?: boolean
     productor?: boolean | productorsDefaultArgs<ExtArgs>
     crops?: boolean | rural_properties$cropsArgs<ExtArgs>
@@ -2471,6 +2555,10 @@ export namespace Prisma {
     total_area?: boolean
     arable_area?: boolean
     vegetation_area?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     productor_id?: boolean
     productor?: boolean | productorsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rural_properties"]>
@@ -2483,6 +2571,10 @@ export namespace Prisma {
     total_area?: boolean
     arable_area?: boolean
     vegetation_area?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     productor_id?: boolean
     productor?: boolean | productorsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rural_properties"]>
@@ -2495,10 +2587,14 @@ export namespace Prisma {
     total_area?: boolean
     arable_area?: boolean
     vegetation_area?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     productor_id?: boolean
   }
 
-  export type rural_propertiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "city" | "state" | "total_area" | "arable_area" | "vegetation_area" | "productor_id", ExtArgs["result"]["rural_properties"]>
+  export type rural_propertiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "city" | "state" | "total_area" | "arable_area" | "vegetation_area" | "created_at" | "updated_at" | "deleted_at" | "is_deleted" | "productor_id", ExtArgs["result"]["rural_properties"]>
   export type rural_propertiesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     productor?: boolean | productorsDefaultArgs<ExtArgs>
     crops?: boolean | rural_properties$cropsArgs<ExtArgs>
@@ -2525,6 +2621,10 @@ export namespace Prisma {
       total_area: number
       arable_area: number
       vegetation_area: number
+      created_at: Date
+      updated_at: Date
+      deleted_at: Date | null
+      is_deleted: boolean
       productor_id: number
     }, ExtArgs["result"]["rural_properties"]>
     composites: {}
@@ -2958,6 +3058,10 @@ export namespace Prisma {
     readonly total_area: FieldRef<"rural_properties", 'Float'>
     readonly arable_area: FieldRef<"rural_properties", 'Float'>
     readonly vegetation_area: FieldRef<"rural_properties", 'Float'>
+    readonly created_at: FieldRef<"rural_properties", 'DateTime'>
+    readonly updated_at: FieldRef<"rural_properties", 'DateTime'>
+    readonly deleted_at: FieldRef<"rural_properties", 'DateTime'>
+    readonly is_deleted: FieldRef<"rural_properties", 'Boolean'>
     readonly productor_id: FieldRef<"rural_properties", 'Int'>
   }
     
@@ -3425,26 +3529,38 @@ export namespace Prisma {
 
   export type CropsMinAggregateOutputType = {
     id: number | null
-    yield: string | null
+    product: string | null
     area: number | null
     rural_property_id: number | null
     harvest: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    is_deleted: boolean | null
   }
 
   export type CropsMaxAggregateOutputType = {
     id: number | null
-    yield: string | null
+    product: string | null
     area: number | null
     rural_property_id: number | null
     harvest: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    is_deleted: boolean | null
   }
 
   export type CropsCountAggregateOutputType = {
     id: number
-    yield: number
+    product: number
     area: number
     rural_property_id: number
     harvest: number
+    created_at: number
+    updated_at: number
+    deleted_at: number
+    is_deleted: number
     _all: number
   }
 
@@ -3465,26 +3581,38 @@ export namespace Prisma {
 
   export type CropsMinAggregateInputType = {
     id?: true
-    yield?: true
+    product?: true
     area?: true
     rural_property_id?: true
     harvest?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
   }
 
   export type CropsMaxAggregateInputType = {
     id?: true
-    yield?: true
+    product?: true
     area?: true
     rural_property_id?: true
     harvest?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
   }
 
   export type CropsCountAggregateInputType = {
     id?: true
-    yield?: true
+    product?: true
     area?: true
     rural_property_id?: true
     harvest?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -3576,10 +3704,14 @@ export namespace Prisma {
 
   export type CropsGroupByOutputType = {
     id: number
-    yield: string
+    product: string
     area: number
     rural_property_id: number
     harvest: number
+    created_at: Date
+    updated_at: Date
+    deleted_at: Date | null
+    is_deleted: boolean
     _count: CropsCountAggregateOutputType | null
     _avg: CropsAvgAggregateOutputType | null
     _sum: CropsSumAggregateOutputType | null
@@ -3603,40 +3735,56 @@ export namespace Prisma {
 
   export type cropsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    yield?: boolean
+    product?: boolean
     area?: boolean
     rural_property_id?: boolean
     harvest?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     rural_property?: boolean | rural_propertiesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["crops"]>
 
   export type cropsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    yield?: boolean
+    product?: boolean
     area?: boolean
     rural_property_id?: boolean
     harvest?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     rural_property?: boolean | rural_propertiesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["crops"]>
 
   export type cropsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    yield?: boolean
+    product?: boolean
     area?: boolean
     rural_property_id?: boolean
     harvest?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
     rural_property?: boolean | rural_propertiesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["crops"]>
 
   export type cropsSelectScalar = {
     id?: boolean
-    yield?: boolean
+    product?: boolean
     area?: boolean
     rural_property_id?: boolean
     harvest?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    is_deleted?: boolean
   }
 
-  export type cropsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "yield" | "area" | "rural_property_id" | "harvest", ExtArgs["result"]["crops"]>
+  export type cropsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "product" | "area" | "rural_property_id" | "harvest" | "created_at" | "updated_at" | "deleted_at" | "is_deleted", ExtArgs["result"]["crops"]>
   export type cropsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     rural_property?: boolean | rural_propertiesDefaultArgs<ExtArgs>
   }
@@ -3654,10 +3802,14 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      yield: string
+      product: string
       area: number
       rural_property_id: number
       harvest: number
+      created_at: Date
+      updated_at: Date
+      deleted_at: Date | null
+      is_deleted: boolean
     }, ExtArgs["result"]["crops"]>
     composites: {}
   }
@@ -4083,10 +4235,14 @@ export namespace Prisma {
    */
   interface cropsFieldRefs {
     readonly id: FieldRef<"crops", 'Int'>
-    readonly yield: FieldRef<"crops", 'String'>
+    readonly product: FieldRef<"crops", 'String'>
     readonly area: FieldRef<"crops", 'Float'>
     readonly rural_property_id: FieldRef<"crops", 'Int'>
     readonly harvest: FieldRef<"crops", 'Int'>
+    readonly created_at: FieldRef<"crops", 'DateTime'>
+    readonly updated_at: FieldRef<"crops", 'DateTime'>
+    readonly deleted_at: FieldRef<"crops", 'DateTime'>
+    readonly is_deleted: FieldRef<"crops", 'Boolean'>
   }
     
 
@@ -4519,7 +4675,11 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     document: 'document',
-    type: 'type'
+    type: 'type',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    deleted_at: 'deleted_at',
+    is_deleted: 'is_deleted'
   };
 
   export type ProductorsScalarFieldEnum = (typeof ProductorsScalarFieldEnum)[keyof typeof ProductorsScalarFieldEnum]
@@ -4533,6 +4693,10 @@ export namespace Prisma {
     total_area: 'total_area',
     arable_area: 'arable_area',
     vegetation_area: 'vegetation_area',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    deleted_at: 'deleted_at',
+    is_deleted: 'is_deleted',
     productor_id: 'productor_id'
   };
 
@@ -4541,10 +4705,14 @@ export namespace Prisma {
 
   export const CropsScalarFieldEnum: {
     id: 'id',
-    yield: 'yield',
+    product: 'product',
     area: 'area',
     rural_property_id: 'rural_property_id',
-    harvest: 'harvest'
+    harvest: 'harvest',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    deleted_at: 'deleted_at',
+    is_deleted: 'is_deleted'
   };
 
   export type CropsScalarFieldEnum = (typeof CropsScalarFieldEnum)[keyof typeof CropsScalarFieldEnum]
@@ -4564,6 +4732,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -4614,6 +4790,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4638,6 +4835,10 @@ export namespace Prisma {
     name?: StringFilter<"productors"> | string
     document?: StringFilter<"productors"> | string
     type?: EnumLegalEntityTypeFilter<"productors"> | $Enums.LegalEntityType
+    created_at?: DateTimeFilter<"productors"> | Date | string
+    updated_at?: DateTimeFilter<"productors"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"productors"> | Date | string | null
+    is_deleted?: BoolFilter<"productors"> | boolean
     properties?: Rural_propertiesListRelationFilter
   }
 
@@ -4646,25 +4847,37 @@ export namespace Prisma {
     name?: SortOrder
     document?: SortOrder
     type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    is_deleted?: SortOrder
     properties?: rural_propertiesOrderByRelationAggregateInput
   }
 
   export type productorsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    document?: string
     AND?: productorsWhereInput | productorsWhereInput[]
     OR?: productorsWhereInput[]
     NOT?: productorsWhereInput | productorsWhereInput[]
     name?: StringFilter<"productors"> | string
-    document?: StringFilter<"productors"> | string
     type?: EnumLegalEntityTypeFilter<"productors"> | $Enums.LegalEntityType
+    created_at?: DateTimeFilter<"productors"> | Date | string
+    updated_at?: DateTimeFilter<"productors"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"productors"> | Date | string | null
+    is_deleted?: BoolFilter<"productors"> | boolean
     properties?: Rural_propertiesListRelationFilter
-  }, "id">
+  }, "id" | "document">
 
   export type productorsOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     document?: SortOrder
     type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    is_deleted?: SortOrder
     _count?: productorsCountOrderByAggregateInput
     _avg?: productorsAvgOrderByAggregateInput
     _max?: productorsMaxOrderByAggregateInput
@@ -4680,6 +4893,10 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"productors"> | string
     document?: StringWithAggregatesFilter<"productors"> | string
     type?: EnumLegalEntityTypeWithAggregatesFilter<"productors"> | $Enums.LegalEntityType
+    created_at?: DateTimeWithAggregatesFilter<"productors"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"productors"> | Date | string
+    deleted_at?: DateTimeNullableWithAggregatesFilter<"productors"> | Date | string | null
+    is_deleted?: BoolWithAggregatesFilter<"productors"> | boolean
   }
 
   export type rural_propertiesWhereInput = {
@@ -4693,6 +4910,10 @@ export namespace Prisma {
     total_area?: FloatFilter<"rural_properties"> | number
     arable_area?: FloatFilter<"rural_properties"> | number
     vegetation_area?: FloatFilter<"rural_properties"> | number
+    created_at?: DateTimeFilter<"rural_properties"> | Date | string
+    updated_at?: DateTimeFilter<"rural_properties"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"rural_properties"> | Date | string | null
+    is_deleted?: BoolFilter<"rural_properties"> | boolean
     productor_id?: IntFilter<"rural_properties"> | number
     productor?: XOR<ProductorsScalarRelationFilter, productorsWhereInput>
     crops?: CropsListRelationFilter
@@ -4706,6 +4927,10 @@ export namespace Prisma {
     total_area?: SortOrder
     arable_area?: SortOrder
     vegetation_area?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    is_deleted?: SortOrder
     productor_id?: SortOrder
     productor?: productorsOrderByWithRelationInput
     crops?: cropsOrderByRelationAggregateInput
@@ -4722,6 +4947,10 @@ export namespace Prisma {
     total_area?: FloatFilter<"rural_properties"> | number
     arable_area?: FloatFilter<"rural_properties"> | number
     vegetation_area?: FloatFilter<"rural_properties"> | number
+    created_at?: DateTimeFilter<"rural_properties"> | Date | string
+    updated_at?: DateTimeFilter<"rural_properties"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"rural_properties"> | Date | string | null
+    is_deleted?: BoolFilter<"rural_properties"> | boolean
     productor_id?: IntFilter<"rural_properties"> | number
     productor?: XOR<ProductorsScalarRelationFilter, productorsWhereInput>
     crops?: CropsListRelationFilter
@@ -4735,6 +4964,10 @@ export namespace Prisma {
     total_area?: SortOrder
     arable_area?: SortOrder
     vegetation_area?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    is_deleted?: SortOrder
     productor_id?: SortOrder
     _count?: rural_propertiesCountOrderByAggregateInput
     _avg?: rural_propertiesAvgOrderByAggregateInput
@@ -4754,6 +4987,10 @@ export namespace Prisma {
     total_area?: FloatWithAggregatesFilter<"rural_properties"> | number
     arable_area?: FloatWithAggregatesFilter<"rural_properties"> | number
     vegetation_area?: FloatWithAggregatesFilter<"rural_properties"> | number
+    created_at?: DateTimeWithAggregatesFilter<"rural_properties"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"rural_properties"> | Date | string
+    deleted_at?: DateTimeNullableWithAggregatesFilter<"rural_properties"> | Date | string | null
+    is_deleted?: BoolWithAggregatesFilter<"rural_properties"> | boolean
     productor_id?: IntWithAggregatesFilter<"rural_properties"> | number
   }
 
@@ -4762,19 +4999,27 @@ export namespace Prisma {
     OR?: cropsWhereInput[]
     NOT?: cropsWhereInput | cropsWhereInput[]
     id?: IntFilter<"crops"> | number
-    yield?: StringFilter<"crops"> | string
+    product?: StringFilter<"crops"> | string
     area?: FloatFilter<"crops"> | number
     rural_property_id?: IntFilter<"crops"> | number
     harvest?: IntFilter<"crops"> | number
+    created_at?: DateTimeFilter<"crops"> | Date | string
+    updated_at?: DateTimeFilter<"crops"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"crops"> | Date | string | null
+    is_deleted?: BoolFilter<"crops"> | boolean
     rural_property?: XOR<Rural_propertiesScalarRelationFilter, rural_propertiesWhereInput>
   }
 
   export type cropsOrderByWithRelationInput = {
     id?: SortOrder
-    yield?: SortOrder
+    product?: SortOrder
     area?: SortOrder
     rural_property_id?: SortOrder
     harvest?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    is_deleted?: SortOrder
     rural_property?: rural_propertiesOrderByWithRelationInput
   }
 
@@ -4783,19 +5028,27 @@ export namespace Prisma {
     AND?: cropsWhereInput | cropsWhereInput[]
     OR?: cropsWhereInput[]
     NOT?: cropsWhereInput | cropsWhereInput[]
-    yield?: StringFilter<"crops"> | string
+    product?: StringFilter<"crops"> | string
     area?: FloatFilter<"crops"> | number
     rural_property_id?: IntFilter<"crops"> | number
     harvest?: IntFilter<"crops"> | number
+    created_at?: DateTimeFilter<"crops"> | Date | string
+    updated_at?: DateTimeFilter<"crops"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"crops"> | Date | string | null
+    is_deleted?: BoolFilter<"crops"> | boolean
     rural_property?: XOR<Rural_propertiesScalarRelationFilter, rural_propertiesWhereInput>
   }, "id">
 
   export type cropsOrderByWithAggregationInput = {
     id?: SortOrder
-    yield?: SortOrder
+    product?: SortOrder
     area?: SortOrder
     rural_property_id?: SortOrder
     harvest?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    is_deleted?: SortOrder
     _count?: cropsCountOrderByAggregateInput
     _avg?: cropsAvgOrderByAggregateInput
     _max?: cropsMaxOrderByAggregateInput
@@ -4808,16 +5061,24 @@ export namespace Prisma {
     OR?: cropsScalarWhereWithAggregatesInput[]
     NOT?: cropsScalarWhereWithAggregatesInput | cropsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"crops"> | number
-    yield?: StringWithAggregatesFilter<"crops"> | string
+    product?: StringWithAggregatesFilter<"crops"> | string
     area?: FloatWithAggregatesFilter<"crops"> | number
     rural_property_id?: IntWithAggregatesFilter<"crops"> | number
     harvest?: IntWithAggregatesFilter<"crops"> | number
+    created_at?: DateTimeWithAggregatesFilter<"crops"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"crops"> | Date | string
+    deleted_at?: DateTimeNullableWithAggregatesFilter<"crops"> | Date | string | null
+    is_deleted?: BoolWithAggregatesFilter<"crops"> | boolean
   }
 
   export type productorsCreateInput = {
     name: string
     document: string
     type: $Enums.LegalEntityType
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     properties?: rural_propertiesCreateNestedManyWithoutProductorInput
   }
 
@@ -4826,6 +5087,10 @@ export namespace Prisma {
     name: string
     document: string
     type: $Enums.LegalEntityType
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     properties?: rural_propertiesUncheckedCreateNestedManyWithoutProductorInput
   }
 
@@ -4833,6 +5098,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     document?: StringFieldUpdateOperationsInput | string
     type?: EnumLegalEntityTypeFieldUpdateOperationsInput | $Enums.LegalEntityType
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     properties?: rural_propertiesUpdateManyWithoutProductorNestedInput
   }
 
@@ -4841,6 +5110,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     document?: StringFieldUpdateOperationsInput | string
     type?: EnumLegalEntityTypeFieldUpdateOperationsInput | $Enums.LegalEntityType
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     properties?: rural_propertiesUncheckedUpdateManyWithoutProductorNestedInput
   }
 
@@ -4849,12 +5122,20 @@ export namespace Prisma {
     name: string
     document: string
     type: $Enums.LegalEntityType
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type productorsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     document?: StringFieldUpdateOperationsInput | string
     type?: EnumLegalEntityTypeFieldUpdateOperationsInput | $Enums.LegalEntityType
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type productorsUncheckedUpdateManyInput = {
@@ -4862,6 +5143,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     document?: StringFieldUpdateOperationsInput | string
     type?: EnumLegalEntityTypeFieldUpdateOperationsInput | $Enums.LegalEntityType
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type rural_propertiesCreateInput = {
@@ -4871,6 +5156,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     productor: productorsCreateNestedOneWithoutPropertiesInput
     crops?: cropsCreateNestedManyWithoutRural_propertyInput
   }
@@ -4883,6 +5172,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     productor_id: number
     crops?: cropsUncheckedCreateNestedManyWithoutRural_propertyInput
   }
@@ -4894,6 +5187,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     productor?: productorsUpdateOneRequiredWithoutPropertiesNestedInput
     crops?: cropsUpdateManyWithoutRural_propertyNestedInput
   }
@@ -4906,6 +5203,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     productor_id?: IntFieldUpdateOperationsInput | number
     crops?: cropsUncheckedUpdateManyWithoutRural_propertyNestedInput
   }
@@ -4918,6 +5219,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     productor_id: number
   }
 
@@ -4928,6 +5233,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type rural_propertiesUncheckedUpdateManyInput = {
@@ -4938,59 +5247,91 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     productor_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type cropsCreateInput = {
-    yield: string
+    product: string
     area: number
     harvest: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     rural_property: rural_propertiesCreateNestedOneWithoutCropsInput
   }
 
   export type cropsUncheckedCreateInput = {
     id?: number
-    yield: string
+    product: string
     area: number
     rural_property_id: number
     harvest: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type cropsUpdateInput = {
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     rural_property?: rural_propertiesUpdateOneRequiredWithoutCropsNestedInput
   }
 
   export type cropsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     rural_property_id?: IntFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type cropsCreateManyInput = {
     id?: number
-    yield: string
+    product: string
     area: number
     rural_property_id: number
     harvest: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type cropsUpdateManyMutationInput = {
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type cropsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     rural_property_id?: IntFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5026,10 +5367,42 @@ export namespace Prisma {
     not?: NestedEnumLegalEntityTypeFilter<$PrismaModel> | $Enums.LegalEntityType
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type Rural_propertiesListRelationFilter = {
     every?: rural_propertiesWhereInput
     some?: rural_propertiesWhereInput
     none?: rural_propertiesWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type rural_propertiesOrderByRelationAggregateInput = {
@@ -5041,6 +5414,10 @@ export namespace Prisma {
     name?: SortOrder
     document?: SortOrder
     type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type productorsAvgOrderByAggregateInput = {
@@ -5052,6 +5429,10 @@ export namespace Prisma {
     name?: SortOrder
     document?: SortOrder
     type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type productorsMinOrderByAggregateInput = {
@@ -5059,6 +5440,10 @@ export namespace Prisma {
     name?: SortOrder
     document?: SortOrder
     type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type productorsSumOrderByAggregateInput = {
@@ -5109,6 +5494,42 @@ export namespace Prisma {
     _max?: NestedEnumLegalEntityTypeFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -5143,6 +5564,10 @@ export namespace Prisma {
     total_area?: SortOrder
     arable_area?: SortOrder
     vegetation_area?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
     productor_id?: SortOrder
   }
 
@@ -5162,6 +5587,10 @@ export namespace Prisma {
     total_area?: SortOrder
     arable_area?: SortOrder
     vegetation_area?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
     productor_id?: SortOrder
   }
 
@@ -5173,6 +5602,10 @@ export namespace Prisma {
     total_area?: SortOrder
     arable_area?: SortOrder
     vegetation_area?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
     productor_id?: SortOrder
   }
 
@@ -5207,10 +5640,14 @@ export namespace Prisma {
 
   export type cropsCountOrderByAggregateInput = {
     id?: SortOrder
-    yield?: SortOrder
+    product?: SortOrder
     area?: SortOrder
     rural_property_id?: SortOrder
     harvest?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type cropsAvgOrderByAggregateInput = {
@@ -5222,18 +5659,26 @@ export namespace Prisma {
 
   export type cropsMaxOrderByAggregateInput = {
     id?: SortOrder
-    yield?: SortOrder
+    product?: SortOrder
     area?: SortOrder
     rural_property_id?: SortOrder
     harvest?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type cropsMinOrderByAggregateInput = {
     id?: SortOrder
-    yield?: SortOrder
+    product?: SortOrder
     area?: SortOrder
     rural_property_id?: SortOrder
     harvest?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type cropsSumOrderByAggregateInput = {
@@ -5263,6 +5708,18 @@ export namespace Prisma {
 
   export type EnumLegalEntityTypeFieldUpdateOperationsInput = {
     set?: $Enums.LegalEntityType
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type rural_propertiesUpdateManyWithoutProductorNestedInput = {
@@ -5411,6 +5868,33 @@ export namespace Prisma {
     not?: NestedEnumLegalEntityTypeFilter<$PrismaModel> | $Enums.LegalEntityType
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -5465,6 +5949,53 @@ export namespace Prisma {
     _max?: NestedEnumLegalEntityTypeFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -5488,6 +6019,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     crops?: cropsCreateNestedManyWithoutRural_propertyInput
   }
 
@@ -5499,6 +6034,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     crops?: cropsUncheckedCreateNestedManyWithoutRural_propertyInput
   }
 
@@ -5539,6 +6078,10 @@ export namespace Prisma {
     total_area?: FloatFilter<"rural_properties"> | number
     arable_area?: FloatFilter<"rural_properties"> | number
     vegetation_area?: FloatFilter<"rural_properties"> | number
+    created_at?: DateTimeFilter<"rural_properties"> | Date | string
+    updated_at?: DateTimeFilter<"rural_properties"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"rural_properties"> | Date | string | null
+    is_deleted?: BoolFilter<"rural_properties"> | boolean
     productor_id?: IntFilter<"rural_properties"> | number
   }
 
@@ -5546,6 +6089,10 @@ export namespace Prisma {
     name: string
     document: string
     type: $Enums.LegalEntityType
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type productorsUncheckedCreateWithoutPropertiesInput = {
@@ -5553,6 +6100,10 @@ export namespace Prisma {
     name: string
     document: string
     type: $Enums.LegalEntityType
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type productorsCreateOrConnectWithoutPropertiesInput = {
@@ -5561,16 +6112,24 @@ export namespace Prisma {
   }
 
   export type cropsCreateWithoutRural_propertyInput = {
-    yield: string
+    product: string
     area: number
     harvest: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type cropsUncheckedCreateWithoutRural_propertyInput = {
     id?: number
-    yield: string
+    product: string
     area: number
     harvest: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type cropsCreateOrConnectWithoutRural_propertyInput = {
@@ -5598,6 +6157,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     document?: StringFieldUpdateOperationsInput | string
     type?: EnumLegalEntityTypeFieldUpdateOperationsInput | $Enums.LegalEntityType
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type productorsUncheckedUpdateWithoutPropertiesInput = {
@@ -5605,6 +6168,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     document?: StringFieldUpdateOperationsInput | string
     type?: EnumLegalEntityTypeFieldUpdateOperationsInput | $Enums.LegalEntityType
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type cropsUpsertWithWhereUniqueWithoutRural_propertyInput = {
@@ -5628,10 +6195,14 @@ export namespace Prisma {
     OR?: cropsScalarWhereInput[]
     NOT?: cropsScalarWhereInput | cropsScalarWhereInput[]
     id?: IntFilter<"crops"> | number
-    yield?: StringFilter<"crops"> | string
+    product?: StringFilter<"crops"> | string
     area?: FloatFilter<"crops"> | number
     rural_property_id?: IntFilter<"crops"> | number
     harvest?: IntFilter<"crops"> | number
+    created_at?: DateTimeFilter<"crops"> | Date | string
+    updated_at?: DateTimeFilter<"crops"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"crops"> | Date | string | null
+    is_deleted?: BoolFilter<"crops"> | boolean
   }
 
   export type rural_propertiesCreateWithoutCropsInput = {
@@ -5641,6 +6212,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     productor: productorsCreateNestedOneWithoutPropertiesInput
   }
 
@@ -5652,6 +6227,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
     productor_id: number
   }
 
@@ -5678,6 +6257,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     productor?: productorsUpdateOneRequiredWithoutPropertiesNestedInput
   }
 
@@ -5689,6 +6272,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     productor_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -5700,6 +6287,10 @@ export namespace Prisma {
     total_area: number
     arable_area: number
     vegetation_area: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type rural_propertiesUpdateWithoutProductorInput = {
@@ -5709,6 +6300,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     crops?: cropsUpdateManyWithoutRural_propertyNestedInput
   }
 
@@ -5720,6 +6315,10 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     crops?: cropsUncheckedUpdateManyWithoutRural_propertyNestedInput
   }
 
@@ -5731,33 +6330,53 @@ export namespace Prisma {
     total_area?: FloatFieldUpdateOperationsInput | number
     arable_area?: FloatFieldUpdateOperationsInput | number
     vegetation_area?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type cropsCreateManyRural_propertyInput = {
     id?: number
-    yield: string
+    product: string
     area: number
     harvest: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    is_deleted?: boolean
   }
 
   export type cropsUpdateWithoutRural_propertyInput = {
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type cropsUncheckedUpdateWithoutRural_propertyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type cropsUncheckedUpdateManyWithoutRural_propertyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    yield?: StringFieldUpdateOperationsInput | string
+    product?: StringFieldUpdateOperationsInput | string
     area?: FloatFieldUpdateOperationsInput | number
     harvest?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
 
