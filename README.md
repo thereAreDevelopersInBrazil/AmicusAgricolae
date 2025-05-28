@@ -134,3 +134,18 @@ http://localhost:3000/
 ```
 http://localhost:3000/docs
 ```
+
+## Docker
+
+Para rodar o projeto utilizando o docker, é necessário que seja fornecida sua connection string via linha de comando,
+Esta ação é necessária para manter a compatibilidade do Dockerfile com o Github actions que foi configurado para injetar as variaveis de ambiente utilizando build-args
+Portanto, para rodar via docker localmente utilize o comando:
+```
+docker build --build-arg DATABASE_URL="sua-connection-string" -t amicus-agricolae .
+```
+A imagem será buildada, após a conclusão para rodar o projeto execute:
+```
+docker run -p 3000:3000 amicus-agricolae
+```
+
+Pronto! Seu container estará rodando e aceitando conexões pela porta 3000
