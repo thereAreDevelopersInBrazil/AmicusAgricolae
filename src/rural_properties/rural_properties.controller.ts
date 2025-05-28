@@ -11,33 +11,33 @@ export class RuralPropertiesController {
   @Post()
   async create(@Body() createRuralPropertyDto: CreateRuralPropertyDto) {
     const result = await this.ruralPropertiesService.create(createRuralPropertyDto);
-    return result.toJson();
+    return result;
   }
 
   @Get()
   async findAll() {
     const results = await this.ruralPropertiesService.findAll();
     return results.map((result) => {
-      return result.toJson();
+      return result;
     });
   }
 
   @Get(':id')
   async findOne(@Param() params: IdParamDto) {
     const result = await this.ruralPropertiesService.findOne(params.id);
-    return result.toJson();
+    return result;
   }
 
   @Patch(':id')
   async partialUpdate(@Param() params: IdParamDto, @Body() partialUpdateRuralPropertyDto: UpdateRuralPropertyDto) {
     const result = await this.ruralPropertiesService.partialUpdate(params.id, partialUpdateRuralPropertyDto);
-    return result.toJson();
+    return result;
   }
 
   @Put(':id')
   async fullUpdate(@Param() params: IdParamDto, @Body() fullUpdateRuralPropertyDto: CreateRuralPropertyDto) {
     const result = await this.ruralPropertiesService.fullUpdate(params.id, fullUpdateRuralPropertyDto);
-    return result.toJson();
+    return result;
   }
 
   @Delete(':id')

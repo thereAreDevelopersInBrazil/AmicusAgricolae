@@ -10,35 +10,35 @@ export class ProductorsController {
 
   @Post()
   async create(@Body() createProductorDto: CreateProductorDto) {
-    return (await this.productorsService.create(createProductorDto)).toJson();
+    return (await this.productorsService.create(createProductorDto));
   }
 
   @Get()
   async findAll() {
     const results = await this.productorsService.findAll();
     return results.map((result) => {
-      return result.toJson();
+      return result;
     });
   }
 
   @Get(':id')
   async findOne(@Param() params: IdParamDto) {
     const result = await this.productorsService.findOne(params.id);
-    return result.toJson();
+    return result;
   }
 
   @Patch(':id')
   async partialUpdate(@Param() params: IdParamDto, @Body() partialUpdateDto: UpdateProductorDto) {
     const result = await this.productorsService.partialUpdate(params.id, partialUpdateDto);
 
-    return result.toJson();
+    return result;
   }
 
   @Put(':id')
   async fullUpdate(@Param() params: IdParamDto, @Body() fullUpdateDto: CreateProductorDto) {
     const result = await this.productorsService.partialUpdate(params.id, fullUpdateDto);
 
-    return result.toJson();
+    return result;
   }
 
   @Delete(':id')

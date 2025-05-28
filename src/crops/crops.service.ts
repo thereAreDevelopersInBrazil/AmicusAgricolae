@@ -1,10 +1,10 @@
 import { HttpException, HttpStatus, Injectable, NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import { CreateCropDto } from './dto/create-crop.dto';
 import { UpdateCropDto } from './dto/update-crop.dto';
-import { ACropsRepository } from 'src/core/repositories/abstracts/acrops.repository';
 import { Crop } from './entities/crop.entity';
-import { ARuralPropertiesRepository } from 'src/core/repositories/abstracts/arural_properties.repository';
+import { ARuralPropertiesRepository } from '../core/repositories/abstracts/arural_properties.repository';
 import { GetCropsFiltersDto } from './dto/get-all-crops.dto';
+import { ACropsRepository } from '../core/repositories/abstracts/acrops.repository';
 
 @Injectable()
 export class CropsService {
@@ -46,6 +46,14 @@ export class CropsService {
   }
 
   async remove(id: number) {
+    /**
+     * Apenas para verificar se existe, pois o findOne irá lançar um throw se não existir,
+     * poderia dar apenas o delete, porém os usuários iriam descobrir que conseguem por exemplo
+     * deletar algo que já foi deletado, para simular que realmente o recurso não existe mais
+     * resolvi colocar a chamada do findone, um tradeoff
+     */
+    await this.findOne(id);
+
     const result = await this.repo.delete(id);
     if (result) {
       return {
@@ -81,6 +89,7 @@ export class CropsService {
     const crop = await this.repo.findOne(id);
     const ruralProperty = await this.repoRuralProperty.findOne(crop.rural_property_id);
     const arableAreaInUse = await this.repo.getArableAreaInUse(crop.rural_property_id, crop.harvest);
+
     let newArableArea = (arableAreaInUse - crop.area) + updateCropDto.area;
     newArableArea = Number(newArableArea.toFixed(4));
     if (newArableArea > ruralProperty.arable_area) {

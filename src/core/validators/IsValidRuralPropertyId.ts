@@ -33,7 +33,7 @@ export class IsValidRuralPropertyIdConstraint implements ValidatorConstraintInte
     }
 
     defaultMessage(args: ValidationArguments) {
-        return `Não foram encontradas propriedades rurais com o rural_property_id fornecido (#${args.value}), verifique e tente novamente!`;
+        return `Não foram encontradas propriedades rurais com o rural_property_id fornecido adsfasfdasdf (#${args.value}), verifique e tente novamente!`;
     }
 }
 
