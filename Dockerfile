@@ -24,4 +24,4 @@ ENV DATABASE_URL=$DATABASE_URL
 RUN npx prisma db push
 
 EXPOSE 3000
-CMD ["npm", "start:prod"]
+CMD ["npm", "run", "start:prod"]
