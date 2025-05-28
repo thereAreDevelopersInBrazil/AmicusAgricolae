@@ -19,5 +19,5 @@ jobs:
           context: .
           tags: test-image:latest
           push: false
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          build-args: |
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
