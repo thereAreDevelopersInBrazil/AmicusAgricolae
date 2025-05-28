@@ -17,6 +17,10 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/generated ./generated
 
 RUN npm install --omit=dev
+
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
+
 RUN npx prisma db push
 
 EXPOSE 3000
