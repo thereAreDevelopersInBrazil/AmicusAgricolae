@@ -148,4 +148,12 @@ A imagem será buildada, após a conclusão para rodar o projeto execute:
 docker run -p 3000:3000 amicus-agricolae
 ```
 
-Pronto! Seu container estará rodando e aceitando conexões pela porta 3000
+Pronto sua aplicação estará rodando em um container com a porta 3000 exposta e aguardando requisições na URL:
+```
+http://localhost:3000/
+```
+
+Para acessar a documentação da API (Swagger) acesse:
+```
+http://localhost:3000/docs
+```
