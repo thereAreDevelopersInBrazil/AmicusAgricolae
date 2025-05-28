@@ -94,11 +94,11 @@ Link para visualização online:
 git clone https://github.com/thereAreDevelopersInBrazil/AmicusAgricolae.git
 ```
 
-2 - Instale as dependências utilizando um gerenciador de pacotes de sua preferencia (npm ou yarm ou pnpm)
+2 - Entre no diretório do projeto clonado e Instale as dependências utilizando um gerenciador de pacotes de sua preferencia (npm ou yarm ou pnpm)
 ```
 npm install
 ```
-3 - Renomeie o arquivo .env.sample para .env
+3 - Renomeie o arquivo ```.env.sample``` para ```.env```
 
 4 - Substitua a conection string placeholder por sua string de conexão com postgres, exemplo:
 Altere de:
@@ -123,4 +123,14 @@ npm run start:prod
 4 - Para rodar em modo desenvolvimento é necessário apenas:
 ```
 npm run start:dev
+```
+
+5 - Pronto, em ambos casos (produção ou desenvolvimento) sua aplicação estará rodando e aguardando requisições na URL:
+```
+http://localhost:3000/
+```
+
+6 - Para acessar a documentação da API (Swagger) acesse:
+```
+http://localhost:3000/docs
 ```
