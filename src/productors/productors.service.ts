@@ -9,7 +9,8 @@ export class ProductorsService {
   constructor(private readonly repo: AProductorsRepository) { }
 
   async create(createProductorDto: CreateProductorDto): Promise<Productor> {
-    const sameDocument = await this.repo.findOne(undefined, createProductorDto.document);
+      const sameDocument = await this.repo.findOne(undefined, createProductorDto.document);
+      
     if (sameDocument) {
       throw new UnprocessableEntityException(`Já existe um produtor registrado com documento ${createProductorDto.document}, utilize o cadastro já existente!`);
     }
@@ -21,11 +22,11 @@ export class ProductorsService {
   }
 
   async findOne(id: number) {
-    return await this.repo.findOne(id);
+    return await this.repo.findOneOrThrow(id);
   }
 
   async partialUpdate(id: number, updateProductorDto: UpdateProductorDto) {
-    const productor = await this.repo.findOne(id);
+    const productor = await this.repo.findOneOrThrow(id);
     if (!productor) {
       throw new NotFoundException(`Não foram encontrados quaisquer produtores com id #${id}!`)
     }
@@ -34,7 +35,7 @@ export class ProductorsService {
       throw new UnprocessableEntityException(`Não é possível atualizar o tipo de documento ('PF' ou 'PJ') sem enviar o novo documento no campo 'document'!`);
     }
 
-    const sameDocument = updateProductorDto.document ? await this.repo.findOne(undefined, updateProductorDto.document, id) : false;
+    const sameDocument = updateProductorDto.document ? await this.repo.findOneOrThrow(undefined, updateProductorDto.document, id) : false;
     if (sameDocument) {
       throw new UnprocessableEntityException(`Já existe outro produtor registrado com documento ${updateProductorDto.document}, utilize o cadastro já existente!`);
     }
@@ -42,12 +43,12 @@ export class ProductorsService {
   }
 
   async fullUpdate(id: number, fullUpdateProductorDto: CreateProductorDto) {
-    const productor = await this.repo.findOne(id);
+    const productor = await this.repo.findOneOrThrow(id);
     if (!productor) {
       throw new NotFoundException(`Não foram encontrados quaisquer produtores com id #${id}!`)
     }
 
-    const sameDocument = fullUpdateProductorDto.document ? await this.repo.findOne(undefined, fullUpdateProductorDto.document, id) : false;
+    const sameDocument = fullUpdateProductorDto.document ? await this.repo.findOneOrThrow(undefined, fullUpdateProductorDto.document, id) : false;
     if (sameDocument) {
       throw new UnprocessableEntityException(`Já existe outro produtor registrado com documento ${fullUpdateProductorDto.document}, utilize o cadastro já existente!`);
     }

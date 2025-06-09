@@ -72,7 +72,7 @@ export class ProductorsRepository extends AProductorsRepository {
         return result.is_deleted;
     }
 
-    async findOne(id?: number, document?: string, exclude?: number): Promise<Productor> {
+    async findOneOrThrow(id?: number, document?: string, exclude?: number): Promise<Productor> {
         const where = {};
         if (id) {
             where['id'] = id;
@@ -95,6 +95,27 @@ export class ProductorsRepository extends AProductorsRepository {
         }
 
         return Productor.fromRaw(result);
+    }
+
+    async findOne(id?: number, document?: string, exclude?: number): Promise<Productor | null> {
+        const where = {};
+        if (id) {
+            where['id'] = id;
+        }
+        if (document) {
+            where['document'] = document;
+            if (exclude) {
+                where['id'] = { not: exclude };
+            }
+        }
+        const result = await this.prisma.productors.findFirst({
+            where: {
+                ...where,
+                is_deleted: false
+            }
+        });
+
+        return result ? Productor.fromRaw(result) : null;
     }
 
     async findAll(): Promise<Productor[]> {

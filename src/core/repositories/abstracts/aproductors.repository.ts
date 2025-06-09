@@ -11,6 +11,7 @@ export abstract class AProductorsRepository extends APrismaRepository {
     abstract create(data: CreateProductorDto): Promise<Productor>;
     abstract update(id: number, data: UpdateProductorDto): Promise<Productor>;
     abstract delete(id: number): Promise<boolean>;
-    abstract findOne(id?: number, document?: string, exclude?: number): Promise<Productor>;
+    abstract findOneOrThrow(id?: number, document?: string, exclude?: number): Promise<Productor>;
+    abstract findOne(id?: number, document?: string, exclude?: number): Promise<Productor | null>;
     abstract findAll(): Promise<Productor[]>;
 }

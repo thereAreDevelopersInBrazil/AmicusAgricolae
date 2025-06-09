@@ -15,7 +15,7 @@ export class IsValidProductorIdConstraint implements ValidatorConstraintInterfac
 
     async validate(id: number): Promise<boolean> {
         try {
-            const productor = await this.productorRepository.findOne(id);
+            const productor = await this.productorRepository.findOneOrThrow(id);
             if (productor && productor.id) {
                 return true;
             }
